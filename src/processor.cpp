@@ -3,7 +3,7 @@
 
 // TODO: Return the aggregate CPU utilization
 float Processor::Utilization() { 
-    long total_jiffies = LinuxParser::Jiffies();
-    long active_jiffies = LinuxParser::ActiveJiffies();
+    float total_jiffies = float(LinuxParser::Jiffies());
+    float active_jiffies = float(LinuxParser::ActiveJiffies());
     return float(active_jiffies/total_jiffies);
  }
