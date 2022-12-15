@@ -64,5 +64,5 @@ void Process::Ram(int pid){
 }
 
 void Process::UpTime(int pid){
-  up_time_ = LinuxParser::UpTime(pid);
+  up_time_ = LinuxParser::UpTime() - LinuxParser::UpTime(pid);
 }

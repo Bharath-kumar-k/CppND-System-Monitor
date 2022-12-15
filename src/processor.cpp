@@ -5,5 +5,5 @@
 float Processor::Utilization() { 
     float total_jiffies = float(LinuxParser::Jiffies());
     float active_jiffies = float(LinuxParser::ActiveJiffies());
-    return float(active_jiffies/total_jiffies);
+    return active_jiffies/total_jiffies;
  }

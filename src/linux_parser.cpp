@@ -209,7 +209,7 @@ string LinuxParser::Ram(int pid) {
       while (linestream >> key) {
         if (key == "VmSize:") {
           linestream >> value;
-          return to_string(int(std::stof(value) * 0.001)); // converting kB to MB 
+          return to_string(int(std::stof(value)/1024)); // converting kB to MB 
         }
       }
     }
@@ -272,6 +272,6 @@ long LinuxParser::UpTime(int pid) {
       linestream >> skip;
     linestream >> ticks;
   }
-  return ticks;
+  return ticks/sysconf(_SC_CLK_TCK);
 }
 
